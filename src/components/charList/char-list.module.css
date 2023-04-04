@@ -1,4 +1,9 @@
-.char__grid {
+.char__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.char__list {
   margin: 0;
   padding: 0;
   list-style-type: none;

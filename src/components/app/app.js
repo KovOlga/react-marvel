@@ -13,14 +13,14 @@ const App = () => {
   return (
     <div className={styles.app}>
       <AppHeader />
-      <main className="char">
+      <main className={styles.char}>
         <RandomChar thor={thor} mjolnir={mjolnir} />
 
         <div className={styles.char__content}>
           <CharList abyss={abyss} />
           <div className={styles.char__info}>
-            {/* <CharInfo thor={thor} /> */}
-            <Skeleton />
+            <CharInfo thor={thor} />
+            {/* <Skeleton /> */}
           </div>
         </div>
       </main>
