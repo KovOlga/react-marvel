@@ -4,59 +4,18 @@ import mjolnir from "../../images/mjolnir.png";
 import styles from "./app.module.css";
 import AppHeader from "../app-header/app-header";
 import RandomChar from "../randomChar/random-char";
+import CharList from "../charList/char-list";
 const hr = "https://developer.marvel.com/";
 
 const App = () => {
   return (
     <div className={styles.app}>
       <AppHeader />
-      <main>
+      <main className="char">
         <RandomChar thor={thor} mjolnir={mjolnir} />
 
-        <div className="char__content">
-          {/* <div className="char__list">
-            <ul className="char__grid">
-              <li className="char__item">
-                <img src={abyss} alt="abyss" />
-                <div className="char__name">Abyss</div>
-              </li>
-              <li className="char__item char__item_selected">
-                <img src={abyss} alt="abyss" />
-                <div className="char__name">Abyss</div>
-              </li>
-              <li className="char__item">
-                <img src={abyss} alt="abyss" />
-                <div className="char__name">Abyss</div>
-              </li>
-              <li className="char__item">
-                <img src={abyss} alt="abyss" />
-                <div className="char__name">Abyss</div>
-              </li>
-              <li className="char__item">
-                <img src={abyss} alt="abyss" />
-                <div className="char__name">Abyss</div>
-              </li>
-              <li className="char__item">
-                <img src={abyss} alt="abyss" />
-                <div className="char__name">Abyss</div>
-              </li>
-              <li className="char__item">
-                <img src={abyss} alt="abyss" />
-                <div className="char__name">Abyss</div>
-              </li>
-              <li className="char__item">
-                <img src={abyss} alt="abyss" />
-                <div className="char__name">Abyss</div>
-              </li>
-              <li className="char__item">
-                <img src={abyss} alt="abyss" />
-                <div className="char__name">Abyss</div>
-              </li>
-            </ul>
-            <button className="button button__main button__long">
-              <div className="inner">load more</div>
-            </button>
-          </div> */}
+        <div className={styles.char__content}>
+          <CharList abyss={abyss} />
 
           {/* <div className="char__info">
             <div className="char__basics">
