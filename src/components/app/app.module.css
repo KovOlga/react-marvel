@@ -38,3 +38,9 @@ button {
   z-index: 5;
   background-color: #fff;
 }
+
+.comics {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
