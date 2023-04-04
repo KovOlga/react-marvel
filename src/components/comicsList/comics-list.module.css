@@ -1,0 +1,138 @@
+.list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 225px);
+  justify-content: space-between;
+  row-gap: 55px;
+}
+
+.item {
+  transition: 0.3s transform;
+}
+
+.item:hover {
+  transform: translateY(-5px);
+}
+
+.item__img {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  width: 225px;
+  height: 345px;
+  object-fit: cover;
+}
+
+.item__title {
+  margin: 0;
+  padding: 0;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.item__price {
+  margin: 0;
+  padding: 0;
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.button {
+  min-width: 101px;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  transition: 0.3s transform;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.button:hover {
+  transform: translateY(-5px);
+}
+
+.button::before {
+  content: "";
+  display: block;
+  height: 10px;
+  margin-left: 10px;
+  transition: none;
+}
+
+.button::after {
+  content: "";
+  display: block;
+  height: 10px;
+  margin-right: 10px;
+  transition: none;
+}
+
+.button__main::before {
+  background-color: #9f0013;
+}
+
+.button__main::after {
+  background-color: #9f0013;
+}
+
+.button__long {
+  display: block;
+  width: 170px;
+  margin: 45px auto 0 auto;
+}
+
+.inner {
+  position: relative;
+  line-height: 18px;
+  padding: 0 18px;
+  transition: none;
+  margin: 0;
+}
+
+.inner:hover {
+  color: #fff;
+}
+
+.inner::before {
+  border-style: solid;
+  border-width: 0 0 10px 10px;
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: -10px;
+  transition: none;
+}
+
+.inner::after {
+  border-style: solid;
+  border-width: 0 0 10px 10px;
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: -10px;
+  transform: rotate(180deg);
+  transition: none;
+}
+
+.inner__main {
+  background-color: #9f0013;
+}
+
+.inner__main::before {
+  border-color: #9f0013 transparent;
+}
+
+.inner__main::after {
+  border-color: #9f0013 transparent;
+}

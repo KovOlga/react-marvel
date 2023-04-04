@@ -12,6 +12,7 @@ import CharList from "../charList/char-list";
 import CharInfo from "../charInfo/char-info";
 import Skeleton from "../skeleton/skeleton";
 import AppBanner from "../app-banner/app-banner";
+import ComicsList from "../comicsList/comics-list";
 const hr = "https://developer.marvel.com/";
 
 const App = () => {
@@ -31,85 +32,7 @@ const App = () => {
       </main> */}
       <main className={styles.comics}>
         <AppBanner avangers={avangers} avangersLogo={avangersLogo} />
-        <div className="comics__list">
-          <ul className="comics__grid">
-            <li className="comics__item">
-              <a href="#">
-                <img src={UW} alt="ultimate war" className="comics__item-img" />
-                <div className="comics__item-name">
-                  ULTIMATE X-MEN VOL. 5: ULTIMATE WAR TPB
-                </div>
-                <div className="comics__item-price">9.99$</div>
-              </a>
-            </li>
-            <li className="comics__item">
-              <a href="#">
-                <img src={XM} alt="x-men" className="comics__item-img" />
-                <div className="comics__item-name">
-                  X-Men: Days of Future Past
-                </div>
-                <div className="comics__item-price">NOT AVAILABLE</div>
-              </a>
-            </li>
-            <li className="comics__item">
-              <a href="#">
-                <img src={UW} alt="ultimate war" className="comics__item-img" />
-                <div className="comics__item-name">
-                  ULTIMATE X-MEN VOL. 5: ULTIMATE WAR TPB
-                </div>
-                <div className="comics__item-price">9.99$</div>
-              </a>
-            </li>
-            <li className="comics__item">
-              <a href="#">
-                <img src={XM} alt="x-men" className="comics__item-img" />
-                <div className="comics__item-name">
-                  X-Men: Days of Future Past
-                </div>
-                <div className="comics__item-price">NOT AVAILABLE</div>
-              </a>
-            </li>
-            <li className="comics__item">
-              <a href="#">
-                <img src={UW} alt="ultimate war" className="comics__item-img" />
-                <div className="comics__item-name">
-                  ULTIMATE X-MEN VOL. 5: ULTIMATE WAR TPB
-                </div>
-                <div className="comics__item-price">9.99$</div>
-              </a>
-            </li>
-            <li className="comics__item">
-              <a href="#">
-                <img src={XM} alt="x-men" className="comics__item-img" />
-                <div className="comics__item-name">
-                  X-Men: Days of Future Past
-                </div>
-                <div className="comics__item-price">NOT AVAILABLE</div>
-              </a>
-            </li>
-            <li className="comics__item">
-              <a href="#">
-                <img src={UW} alt="ultimate war" className="comics__item-img" />
-                <div className="comics__item-name">
-                  ULTIMATE X-MEN VOL. 5: ULTIMATE WAR TPB
-                </div>
-                <div className="comics__item-price">9.99$</div>
-              </a>
-            </li>
-            <li className="comics__item">
-              <a href="#">
-                <img src={XM} alt="x-men" className="comics__item-img" />
-                <div className="comics__item-name">
-                  X-Men: Days of Future Past
-                </div>
-                <div className="comics__item-price">NOT AVAILABLE</div>
-              </a>
-            </li>
-          </ul>
-          <button className="button button__main button__long">
-            <div className="inner">load more</div>
-          </button>
-        </div>
+        <ComicsList UW={UW} XM={XM} />
         {/* <div className="single-comic">
                 <img src={XM} alt="x-men" className="single-comic__img"/>
                 <div className="single-comic__info">
@@ -119,7 +42,7 @@ const App = () => {
                     <p className="single-comic__descr">Language: en-us</p>
                     <div className="single-comic__price">9.99$</div>
                 </div>
-                <a href="#" className="single-comic__back">Back to all</a>
+                <a href="#" className="single-comic__back">Back to all
             </div> */}
       </main>
     </div>
