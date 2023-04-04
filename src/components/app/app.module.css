@@ -1,0 +1,11 @@
+.app {
+  width: 1100px;
+  margin: 0 auto;
+  padding: 50px 0 50px 0;
+  position: relative;
+  font-family: "Roboto Condensed", Arial, sans-serif;
+}
+
+button {
+  font-family: inherit;
+}

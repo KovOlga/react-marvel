@@ -1,0 +1,46 @@
+.app__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.app__title {
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 37px;
+  margin: 0;
+}
+
+.app__title_span {
+  color: #9f0013;
+}
+
+.app__menu_list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.app__menu_item {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin: 0 8px;
+}
+
+.app__menu_btn {
+  border: none;
+  background-color: inherit;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.app__menu_btn:hover {
+  color: #9f0013;
+}
