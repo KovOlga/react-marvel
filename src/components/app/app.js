@@ -3,6 +3,7 @@ import thor from "../../images/thor.jpeg";
 import mjolnir from "../../images/mjolnir.png";
 import styles from "./app.module.css";
 import AppHeader from "../app-header/app-header";
+import RandomChar from "../randomChar/random-char";
 const hr = "https://developer.marvel.com/";
 
 const App = () => {
@@ -10,48 +11,7 @@ const App = () => {
     <div className={styles.app}>
       <AppHeader />
       <main>
-        <div className="randomchar">
-          <div className="randomchar__block">
-            <img
-              src={thor}
-              alt="Random character"
-              className="randomchar__img"
-            />
-            <div className="randomchar__info">
-              <p className="randomchar__name">Thor</p>
-              <p className="randomchar__descr">
-                As the Norse God of thunder and lightning, Thor wields one of
-                the greatest weapons ever made, the enchanted hammer Mjolnir.
-                While others have described Thor as an over-muscled, oafish
-                imbecile, he's quite smart and compassionate...
-              </p>
-              <div className="randomchar__btns">
-                <a href={hr} className="button button__main">
-                  <div className="inner">homepage</div>
-                </a>
-                <a href={hr} className="button button__secondary">
-                  <div className="inner">Wiki</div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="randomchar__static">
-            <p className="randomchar__title">
-              Random character for today!
-              <br />
-              Do you want to get to know him better?
-            </p>
-            <p className="randomchar__title">Or choose another one</p>
-            <button className="button button__main">
-              <div className="inner">try it</div>
-            </button>
-            <img
-              src={mjolnir}
-              alt="mjolnir"
-              className="randomchar__decoration"
-            />
-          </div>
-        </div>
+        <RandomChar thor={thor} mjolnir={mjolnir} />
 
         <div className="char__content">
           {/* <div className="char__list">
@@ -164,6 +124,100 @@ const App = () => {
           </div> */}
         </div>
       </main>
+      {/* <main>
+            <div class="app__banner">
+                <img src="img/Avengers.png" alt="Avengers">
+                <div class="app__banner-text">
+                    New comics every week!<br>
+                    Stay tuned!
+                </div>
+                <img src="img/Avengers_logo.png" alt="Avengers logo">
+            </div>
+            <div class="comics__list">
+                <ul class="comics__grid">
+                    <li class="comics__item">
+                        <a href="#">
+                            <img src="img/UW.png" alt="ultimate war" class="comics__item-img">
+                            <div class="comics__item-name">ULTIMATE X-MEN VOL. 5: ULTIMATE WAR TPB</div>
+                            <div class="comics__item-price">9.99$</div>
+                        </a>
+                    </li>
+                    <li class="comics__item">
+                        <a href="#">
+                            <img src="img/x-men.png" alt="x-men" class="comics__item-img">
+                            <div class="comics__item-name">X-Men: Days of Future Past</div>
+                            <div class="comics__item-price">NOT AVAILABLE</div>
+                        </a>
+                    </li>
+                    <li class="comics__item">
+                        <a href="#">
+                            <img src="img/UW.png" alt="ultimate war" class="comics__item-img">
+                            <div class="comics__item-name">ULTIMATE X-MEN VOL. 5: ULTIMATE WAR TPB</div>
+                            <div class="comics__item-price">9.99$</div>
+                        </a>
+                    </li>
+                    <li class="comics__item">
+                        <a href="#">
+                            <img src="img/x-men.png" alt="x-men" class="comics__item-img">
+                            <div class="comics__item-name">X-Men: Days of Future Past</div>
+                            <div class="comics__item-price">NOT AVAILABLE</div>
+                        </a>
+                    </li>
+                    <li class="comics__item">
+                        <a href="#">
+                            <img src="img/UW.png" alt="ultimate war" class="comics__item-img">
+                            <div class="comics__item-name">ULTIMATE X-MEN VOL. 5: ULTIMATE WAR TPB</div>
+                            <div class="comics__item-price">9.99$</div>
+                        </a>
+                    </li>
+                    <li class="comics__item">
+                        <a href="#">
+                            <img src="img/x-men.png" alt="x-men" class="comics__item-img">
+                            <div class="comics__item-name">X-Men: Days of Future Past</div>
+                            <div class="comics__item-price">NOT AVAILABLE</div>
+                        </a>
+                    </li>
+                    <li class="comics__item">
+                        <a href="#">
+                            <img src="img/UW.png" alt="ultimate war" class="comics__item-img">
+                            <div class="comics__item-name">ULTIMATE X-MEN VOL. 5: ULTIMATE WAR TPB</div>
+                            <div class="comics__item-price">9.99$</div>
+                        </a>
+                    </li>
+                    <li class="comics__item">
+                        <a href="#">
+                            <img src="img/x-men.png" alt="x-men" class="comics__item-img">
+                            <div class="comics__item-name">X-Men: Days of Future Past</div>
+                            <div class="comics__item-price">NOT AVAILABLE</div>
+                        </a>
+                    </li>
+                </ul>
+                <button class="button button__main button__long">
+                    <div class="inner">load more</div>
+                </button>
+            </div>
+        </main> */}
+      {/* <main>
+            <div class="app__banner">
+                <img src="img/Avengers.png" alt="Avengers">
+                <div class="app__banner-text">
+                    New comics every week!<br>
+                    Stay tuned!
+                </div>
+                <img src="img/Avengers_logo.png" alt="Avengers logo">
+            </div>
+            <div class="single-comic">
+                <img src="img/x-men.png" alt="x-men" class="single-comic__img">
+                <div class="single-comic__info">
+                    <h2 class="single-comic__name">X-Men: Days of Future Past</h2>
+                    <p class="single-comic__descr">Re-live the legendary first journey into the dystopian future of 2013 - where Sentinels stalk the Earth, and the X-Men are humanity's only hope...until they die! Also featuring the first appearance of Alpha Flight, the return of the Wendigo, the history of the X-Men from Cyclops himself...and a demon for Christmas!?</p>
+                    <p class="single-comic__descr">144 pages</p>
+                    <p class="single-comic__descr">Language: en-us</p>
+                    <div class="single-comic__price">9.99$</div>
+                </div>
+                <a href="#" class="single-comic__back">Back to all</a>
+            </div>
+        </main> */}
     </div>
   );
 };
