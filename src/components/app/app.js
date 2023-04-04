@@ -6,6 +6,7 @@ import AppHeader from "../app-header/app-header";
 import RandomChar from "../randomChar/random-char";
 import CharList from "../charList/char-list";
 import CharInfo from "../charInfo/char-info";
+import Skeleton from "../skeleton/skeleton";
 const hr = "https://developer.marvel.com/";
 
 const App = () => {
@@ -18,19 +19,8 @@ const App = () => {
         <div className={styles.char__content}>
           <CharList abyss={abyss} />
           <div className={styles.char__info}>
-            <CharInfo thor={thor} />
-            {/* <p className="char__select">
-        Please select a character to see information
-      </p>
-      <div className="skeleton">
-        <div className="pulse skeleton__header">
-          <div className="pulse skeleton__circle"></div>
-          <div className="pulse skeleton__mini"></div>
-        </div>
-        <div className="pulse skeleton__block"></div>
-        <div className="pulse skeleton__block"></div>
-        <div className="pulse skeleton__block"></div>
-      </div> */}
+            {/* <CharInfo thor={thor} /> */}
+            <Skeleton />
           </div>
         </div>
       </main>
