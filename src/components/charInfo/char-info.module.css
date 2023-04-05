@@ -1,22 +1,22 @@
-.char__basics {
+.charinfo__basics {
   display: flex;
   flex-direction: row;
   gap: 25px;
 }
 
-.char__img {
+.charinfo__img {
   width: 150px;
   height: 150px;
   object-fit: cover;
 }
 
-.char__mini {
+.charinfo__mini {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.char__name {
+.charinfo__name {
   margin: 0;
   padding: 0;
   font-weight: bold;
@@ -25,14 +25,14 @@
   text-transform: uppercase;
 }
 
-.char__descr {
+.charinfo__descr {
   margin: 0;
   margin-top: 15px;
   font-size: 14px;
   line-height: 18px;
 }
 
-.char__btns {
+.charinfo__btns {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -166,6 +166,7 @@
 }
 
 .comics__item {
+  box-sizing: border-box;
   width: 100%;
   padding: 0px 10px;
   line-height: 25px;

@@ -3,11 +3,11 @@ import styles from "./char-info.module.css";
 const CharInfo = ({ thor }) => {
   return (
     <>
-      <div className={styles.char__basics}>
-        <img className={styles.char__img} src={thor} alt="abyss" />
-        <div className={styles.char__mini}>
-          <h2 className={styles.char__name}>thor</h2>
-          <div className={styles.char__btns}>
+      <div className={styles.charinfo__basics}>
+        <img className={styles.charinfo__img} src={thor} alt="abyss" />
+        <div className={styles.charinfo__mini}>
+          <h2 className={styles.charinfo__name}>thor</h2>
+          <div className={styles.charinfo__btns}>
             <button className={`${styles.button} ${styles.button__main}`}>
               <p className={`${styles.inner} ${styles.inner__main}`}>
                 homepage
@@ -21,7 +21,7 @@ const CharInfo = ({ thor }) => {
           </div>
         </div>
       </div>
-      <p className={styles.char__descr}>
+      <p className={styles.charinfo__descr}>
         In Norse mythology, Loki is a god or jötunn (or both). Loki is the son
         of Fárbauti and Laufey, and the brother of Helblindi and Býleistr. By
         the jötunn Angrboða, Loki is the father of Hel, the wolf Fenrir, and the

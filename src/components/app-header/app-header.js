@@ -2,23 +2,23 @@ import styles from "./app-header.module.css";
 
 const AppHeader = () => {
   return (
-    <header className={styles.app__header}>
-      <h1 className={styles.app__title}>
-        <span className={styles.app__title_span}>Marvel </span>
+    <header className={styles.header}>
+      <h1 className={styles.header__title}>
+        <span className={styles.header__span}>Marvel </span>
         information portal
       </h1>
-      <nav className={styles.app__menu}>
-        <ul className={styles.app__menu_list}>
-          <li className={styles.app__menu_item}>
-            <button type="button" className={styles.app__menu_btn}>
+      <nav className={styles.nav}>
+        <ul className={styles.nav__list}>
+          <li className={styles.nav__item}>
+            <button type="button" className={styles.nav__btn}>
               Characters
             </button>
           </li>
-          <li className={styles.app__menu_item}>
-            <p className={styles.header__slash}> / </p>
+          <li className={styles.nav__item}>
+            <p className={styles.nav__slash}> / </p>
           </li>
-          <li className={styles.app__menu_item}>
-            <button type="button" className={styles.app__menu_btn}>
+          <li className={styles.nav__item}>
+            <button type="button" className={styles.nav__btn}>
               Comics
             </button>
           </li>

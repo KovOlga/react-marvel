@@ -2,43 +2,45 @@ import styles from "./char-list.module.css";
 
 const CharList = ({ abyss }) => {
   return (
-    <div className={styles.char__container}>
-      <ul className={styles.char__list}>
-        <li className={styles.char__item}>
-          <img className={styles.char__img} src={abyss} alt="abyss" />
-          <p className={styles.char__name}>Abyss</p>
+    <div className={styles.charlist}>
+      <ul className={styles.charlist__list}>
+        <li className={styles.charlist__item}>
+          <img className={styles.charlist__img} src={abyss} alt="abyss" />
+          <p className={styles.charlist__name}>Abyss</p>
         </li>
-        <li className={`${styles.char__item} ${styles.char__item_selected}`}>
-          <img className={styles.char__img} src={abyss} alt="abyss" />
-          <p className={styles.char__name}>Abyss</p>
+        <li
+          className={`${styles.charlist__item} ${styles.charlist__item_selected}`}
+        >
+          <img className={styles.charlist__img} src={abyss} alt="abyss" />
+          <p className={styles.charlist__name}>Abyss</p>
         </li>
-        <li className={styles.char__item}>
-          <img className={styles.char__img} src={abyss} alt="abyss" />
-          <p className={styles.char__name}>Abyss</p>
+        <li className={styles.charlist__item}>
+          <img className={styles.charlist__img} src={abyss} alt="abyss" />
+          <p className={styles.charlist__name}>Abyss</p>
         </li>
-        <li className={styles.char__item}>
-          <img className={styles.char__img} src={abyss} alt="abyss" />
-          <p className={styles.char__name}>Abyss</p>
+        <li className={styles.charlist__item}>
+          <img className={styles.charlist__img} src={abyss} alt="abyss" />
+          <p className={styles.charlist__name}>Abyss</p>
         </li>
-        <li className={styles.char__item}>
-          <img className={styles.char__img} src={abyss} alt="abyss" />
-          <p className={styles.char__name}>Abyss</p>
+        <li className={styles.charlist__item}>
+          <img className={styles.charlist__img} src={abyss} alt="abyss" />
+          <p className={styles.charlist__name}>Abyss</p>
         </li>
-        <li className={styles.char__item}>
-          <img className={styles.char__img} src={abyss} alt="abyss" />
-          <p className={styles.char__name}>Abyss</p>
+        <li className={styles.charlist__item}>
+          <img className={styles.charlist__img} src={abyss} alt="abyss" />
+          <p className={styles.charlist__name}>Abyss</p>
         </li>
-        <li className={styles.char__item}>
-          <img className={styles.char__img} src={abyss} alt="abyss" />
-          <p className={styles.char__name}>Abyss</p>
+        <li className={styles.charlist__item}>
+          <img className={styles.charlist__img} src={abyss} alt="abyss" />
+          <p className={styles.charlist__name}>Abyss</p>
         </li>
-        <li className={styles.char__item}>
-          <img className={styles.char__img} src={abyss} alt="abyss" />
-          <p className={styles.char__name}>Abyss</p>
+        <li className={styles.charlist__item}>
+          <img className={styles.charlist__img} src={abyss} alt="abyss" />
+          <p className={styles.charlist__name}>Abyss</p>
         </li>
-        <li className={styles.char__item}>
-          <img className={styles.char__img} src={abyss} alt="abyss" />
-          <p className={styles.char__name}>Abyss</p>
+        <li className={styles.charlist__item}>
+          <img className={styles.charlist__img} src={abyss} alt="abyss" />
+          <p className={styles.charlist__name}>Abyss</p>
         </li>
       </ul>
       <button

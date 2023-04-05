@@ -1,20 +1,20 @@
-.app__header {
+.header {
   display: flex;
   justify-content: space-between;
 }
 
-.app__title {
+.header__title {
   font-weight: bold;
   font-size: 28px;
   line-height: 37px;
   margin: 0;
 }
 
-.app__title_span {
+.header__span {
   color: #9f0013;
 }
 
-.app__menu_list {
+.nav__list {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -24,20 +24,20 @@
   align-items: center;
 }
 
-.app__menu_item {
+.nav__item {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.header__slash {
+.nav__slash {
   margin: 0;
   padding: 0;
   font-weight: 700;
   font-size: 24px;
   line-height: 28px;
 }
-.app__menu_btn {
+.nav__btn {
   border: none;
   background-color: inherit;
   font-family: inherit;
@@ -49,6 +49,6 @@
   list-style-type: none;
 }
 
-.app__menu_btn:hover {
+.nav__btn:hover {
   color: #9f0013;
 }
