@@ -15,6 +15,9 @@ const AppHeader = () => {
             </button>
           </li>
           <li className={styles.app__menu_item}>
+            <p className={styles.header__slash}> / </p>
+          </li>
+          <li className={styles.app__menu_item}>
             <button type="button" className={styles.app__menu_btn}>
               Comics
             </button>
