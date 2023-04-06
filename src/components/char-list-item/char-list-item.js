@@ -3,7 +3,7 @@ import styles from "./char-list-item.module.css";
 const CharListItem = (props) => {
   const { thumbnail, name } = props.char;
   return (
-    <li className={styles.charlist__item}>
+    <li onClick={props.onClickItem} className={styles.charlist__item}>
       <img
         className={styles.charlist__img}
         src={thumbnail}
