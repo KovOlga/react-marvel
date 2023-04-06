@@ -21,6 +21,12 @@ class RandomChar extends Component {
     this.updateChar();
   }
 
+  onCharLoading = () => {
+    this.setState({
+      loading: true,
+    });
+  };
+
   onCharLoaded = (char) => {
     this.setState({ char, loading: false });
   };
@@ -31,6 +37,7 @@ class RandomChar extends Component {
 
   updateChar = () => {
     const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
+    this.onCharLoading();
     this.marvelService
       .getCharacter(id)
       .then(this.onCharLoaded)
@@ -63,7 +70,11 @@ class RandomChar extends Component {
             </div>
             <p className={styles.randomchar__text}>Or choose another one</p>
           </div>
-          <button className={`${styles.button} ${styles.button__main}`}>
+          <button
+            type="button"
+            onClick={this.updateChar}
+            className={`${styles.button} ${styles.button__main}`}
+          >
             <p className={`${styles.inner} ${styles.inner__main}`}>try it</p>
           </button>
           <img
@@ -79,12 +90,20 @@ class RandomChar extends Component {
 
 const ChangableContent = ({ char }) => {
   const { name, description, thumbnail, homepage, wiki } = char;
+  let imgStyle = { objectFit: "cover" };
+  if (
+    thumbnail ===
+    "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
+  ) {
+    imgStyle = { objectFit: "contain" };
+  }
   return (
     <div className={styles.randomchar__changeable}>
       <img
         src={thumbnail}
         alt="Random character"
         className={styles.randomchar__img}
+        style={imgStyle}
       />
       <div className={styles.randomchar__info}>
         <p className={styles.randomchar__name}>{name}</p>
