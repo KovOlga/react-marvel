@@ -1,6 +1,8 @@
 import styles from "./random-char.module.css";
 import { Component } from "react";
 import MarvelService from "../../services/MarvelService";
+import Spinner from "../spinner/spinner";
+import ErrorMessage from "../error-message/error-message";
 
 class RandomChar extends Component {
   constructor(props) {
@@ -9,6 +11,8 @@ class RandomChar extends Component {
   }
   state = {
     char: {},
+    loading: true,
+    error: false,
   };
 
   marvelService = new MarvelService();
@@ -18,49 +22,35 @@ class RandomChar extends Component {
   }
 
   onCharLoaded = (char) => {
-    this.setState({ char });
+    this.setState({ char, loading: false });
+  };
+
+  onError = () => {
+    this.setState({ loading: false, error: true });
   };
 
   updateChar = () => {
     const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
-    this.marvelService.getCharacter(id).then(this.onCharLoaded);
+    this.marvelService
+      .getCharacter(id)
+      .then(this.onCharLoaded)
+      .catch(this.onError);
   };
 
   render() {
-    const {
-      char: { name, description, thumbnail, homepage, wiki },
-    } = this.state;
+    const { char, loading, error } = this.state;
+
+    const errorMessage = error ? <ErrorMessage /> : null;
+    const spinner = loading ? <Spinner /> : null;
+    const content = !(loading || error) ? (
+      <ChangableContent char={char} />
+    ) : null;
+
     return (
       <div className={styles.randomchar}>
-        <div className={styles.randomchar__container}>
-          <img
-            src={thumbnail}
-            alt="Random character"
-            className={styles.randomchar__img}
-          />
-          <div className={styles.randomchar__info}>
-            <p className={styles.randomchar__name}>{name}</p>
-            <p className={styles.randomchar__descr}>{description}</p>
-            <div className={styles.randomchar__btns}>
-              <a
-                href={homepage}
-                className={`${styles.button} ${styles.button__main}`}
-              >
-                <p className={`${styles.inner} ${styles.inner__main}`}>
-                  homepage
-                </p>
-              </a>
-              <a
-                href={wiki}
-                className={`${styles.button} ${styles.button__secondary}`}
-              >
-                <p className={`${styles.inner} ${styles.inner__secondary}`}>
-                  Wiki
-                </p>
-              </a>
-            </div>
-          </div>
-        </div>
+        {errorMessage}
+        {spinner}
+        {content}
         <div className={styles.randomchar__static}>
           <div className={styles.randomchar__textContainer}>
             <div className={styles.randomchar__title}>
@@ -86,5 +76,36 @@ class RandomChar extends Component {
     );
   }
 }
+
+const ChangableContent = ({ char }) => {
+  const { name, description, thumbnail, homepage, wiki } = char;
+  return (
+    <div className={styles.randomchar__changeable}>
+      <img
+        src={thumbnail}
+        alt="Random character"
+        className={styles.randomchar__img}
+      />
+      <div className={styles.randomchar__info}>
+        <p className={styles.randomchar__name}>{name}</p>
+        <p className={styles.randomchar__descr}>{description}</p>
+        <div className={styles.randomchar__btns}>
+          <a
+            href={homepage}
+            className={`${styles.button} ${styles.button__main}`}
+          >
+            <p className={`${styles.inner} ${styles.inner__main}`}>homepage</p>
+          </a>
+          <a
+            href={wiki}
+            className={`${styles.button} ${styles.button__secondary}`}
+          >
+            <p className={`${styles.inner} ${styles.inner__secondary}`}>Wiki</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default RandomChar;
