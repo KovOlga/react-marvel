@@ -1,6 +1,5 @@
 import styles from "./random-char.module.css";
 import { Component } from "react";
-import MarvelService from "../../services/MarvelService";
 import Spinner from "../spinner/spinner";
 import ErrorMessage from "../error-message/error-message";
 
@@ -14,8 +13,6 @@ class RandomChar extends Component {
     loading: true,
     error: false,
   };
-
-  marvelService = new MarvelService();
 
   componentDidMount() {
     this.updateChar();
@@ -38,10 +35,7 @@ class RandomChar extends Component {
   updateChar = () => {
     const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
     this.onCharLoading();
-    this.marvelService
-      .getCharacter(id)
-      .then(this.onCharLoaded)
-      .catch(this.onError);
+    this.props.getCharacter(id).then(this.onCharLoaded).catch(this.onError);
   };
 
   render() {

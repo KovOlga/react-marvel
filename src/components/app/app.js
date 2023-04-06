@@ -8,23 +8,30 @@ import avangersLogo from "../../images/Avengers_logo.png";
 import vision from "../../images/vision.png";
 import styles from "./app.module.css";
 import AppHeader from "../app-header/app-header";
-import RandomChar from "../randomChar/random-char";
-import CharList from "../charList/char-list";
-import CharInfo from "../charInfo/char-info";
+import RandomChar from "../random-char/random-char";
+import CharList from "../char-list/char-list";
+import CharInfo from "../char-info/char-info";
 import Skeleton from "../skeleton/skeleton";
 import AppBanner from "../app-banner/app-banner";
-import ComicsList from "../comicsList/comics-list";
-import SingleComic from "../singleComic/single-comic";
+import ComicsList from "../comics-list/comics-list";
+import SingleComic from "../single-comic/single-comic";
+import MarvelService from "../../services/MarvelService";
+
+const marvelService = new MarvelService();
 
 const App = () => {
   return (
     <div className={styles.app}>
       <AppHeader />
       <main className={styles.char}>
-        <RandomChar thor={thor} mjolnir={mjolnir} />
+        <RandomChar
+          getCharacter={marvelService.getCharacter}
+          thor={thor}
+          mjolnir={mjolnir}
+        />
 
         <div className={styles.char__content}>
-          <CharList abyss={abyss} />
+          <CharList getAllCharacters={marvelService.getAllCharacters} />
           <div className={styles.char__info}>
             <CharInfo thor={thor} />
             {/* <Skeleton /> */}
