@@ -17,6 +17,7 @@ import ComicsList from "../comics-list/comics-list";
 import SingleComic from "../single-comic/single-comic";
 import MarvelService from "../../services/MarvelService";
 import { Component } from "react";
+import ErrorBoundary from "../error-boundary/error-boundary";
 
 const marvelService = new MarvelService();
 
@@ -34,23 +35,27 @@ class App extends Component {
       <div className={styles.app}>
         <AppHeader />
         <main className={styles.char}>
-          <RandomChar
-            getCharacter={marvelService.getCharacter}
-            mjolnir={mjolnir}
-          />
+          <ErrorBoundary>
+            <RandomChar
+              getCharacter={marvelService.getCharacter}
+              mjolnir={mjolnir}
+            />
+          </ErrorBoundary>
 
           <div className={styles.char__content}>
-            <CharList
-              onCharSelected={this.onCharSelected}
-              getAllCharacters={marvelService.getAllCharacters}
-            />
-            <div className={styles.char__info}>
+            <ErrorBoundary>
+              <CharList
+                onCharSelected={this.onCharSelected}
+                getAllCharacters={marvelService.getAllCharacters}
+              />
+            </ErrorBoundary>
+            <ErrorBoundary>
               <CharInfo
                 charId={this.state.selectedChar}
                 getCharacter={marvelService.getCharacter}
                 thor={thor}
               />
-            </div>
+            </ErrorBoundary>
           </div>
           <img className={styles.char__bg} src={vision} alt="vision" />
         </main>

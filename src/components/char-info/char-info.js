@@ -55,12 +55,12 @@ class CharInfo extends Component {
     ) : null;
 
     return (
-      <>
+      <div className={styles.charInfo}>
         {skeleton}
         {errorMessage}
         {spinner}
         {content}
-      </>
+      </div>
     );
   }
 }
