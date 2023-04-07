@@ -1,6 +1,7 @@
 import styles from "./char-list-item.module.css";
+import { memo } from "react";
 
-const CharListItem = (props) => {
+const CharListItem = memo((props) => {
   const { thumbnail, name } = props.char;
   return (
     <li onClick={props.onClickItem} className={styles.charlist__item}>
@@ -13,6 +14,6 @@ const CharListItem = (props) => {
       <p className={styles.charlist__name}>{name}</p>
     </li>
   );
-};
+});
 
 export default CharListItem;

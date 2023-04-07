@@ -1,4 +1,3 @@
-import abyss from "../../images/abyss.jpg";
 import thor from "../../images/thor.jpeg";
 import mjolnir from "../../images/mjolnir.png";
 import UW from "../../images/UW.png";
@@ -11,62 +10,59 @@ import AppHeader from "../app-header/app-header";
 import RandomChar from "../random-char/random-char";
 import CharList from "../char-list/char-list";
 import CharInfo from "../char-info/char-info";
-import Skeleton from "../skeleton/skeleton";
 import AppBanner from "../app-banner/app-banner";
 import ComicsList from "../comics-list/comics-list";
 import SingleComic from "../single-comic/single-comic";
 import MarvelService from "../../services/MarvelService";
-import { Component } from "react";
 import ErrorBoundary from "../error-boundary/error-boundary";
+import { useCallback } from "react";
+import { useState } from "react";
 
 const marvelService = new MarvelService();
 
-class App extends Component {
-  state = {
-    selectedChar: null,
-  };
+const App = () => {
+  const [selectedChar, setSelectedChar] = useState(null);
 
-  onCharSelected = (id) => {
-    this.setState({ selectedChar: id });
-  };
+  const onCharSelected = useCallback((id) => {
+    setSelectedChar(id);
+    console.log(id);
+  }, []);
 
-  render() {
-    return (
-      <div className={styles.app}>
-        <AppHeader />
-        <main className={styles.char}>
+  return (
+    <div className={styles.app}>
+      <AppHeader />
+      <main className={styles.char}>
+        <ErrorBoundary>
+          <RandomChar
+            getCharacter={marvelService.getCharacter}
+            mjolnir={mjolnir}
+          />
+        </ErrorBoundary>
+
+        <div className={styles.char__content}>
           <ErrorBoundary>
-            <RandomChar
-              getCharacter={marvelService.getCharacter}
-              mjolnir={mjolnir}
+            <CharList
+              onCharSelected={onCharSelected}
+              getAllCharacters={marvelService.getAllCharacters}
             />
           </ErrorBoundary>
-
-          <div className={styles.char__content}>
-            <ErrorBoundary>
-              <CharList
-                onCharSelected={this.onCharSelected}
-                getAllCharacters={marvelService.getAllCharacters}
-              />
-            </ErrorBoundary>
-            <ErrorBoundary>
-              <CharInfo
-                charId={this.state.selectedChar}
-                getCharacter={marvelService.getCharacter}
-                thor={thor}
-              />
-            </ErrorBoundary>
-          </div>
-          <img className={styles.char__bg} src={vision} alt="vision" />
-        </main>
-        {/* <main className={styles.comics}>
+          <ErrorBoundary>
+            <CharInfo
+              charId={selectedChar}
+              getCharacter={marvelService.getCharacter}
+              thor={thor}
+            />
+          </ErrorBoundary>
+        </div>
+        <img className={styles.char__bg} src={vision} alt="vision" />
+      </main>
+      {/* <main className={styles.comics}>
         <AppBanner avangers={avangers} avangersLogo={avangersLogo} />
         <ComicsList UW={UW} XM={XM} />
         <SingleComic XM={XM} />
       </main> */}
-      </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default App;
