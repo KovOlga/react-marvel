@@ -126,7 +126,7 @@ const CharView = ({ char }) => {
 };
 
 CharInfo.propTypes = {
-  charId: PropTypes.number.isRequired,
+  charId: PropTypes.number,
 };
 
 export default CharInfo;

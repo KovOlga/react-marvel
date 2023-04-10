@@ -3,6 +3,7 @@ import { Component } from "react";
 import CharListItem from "../char-list-item/char-list-item";
 import Spinner from "../spinner/spinner";
 import ErrorMessage from "../error-message/error-message";
+import { createRef } from "react";
 
 class CharList extends Component {
   state = {
@@ -65,8 +66,18 @@ class CharList extends Component {
     });
   };
 
+  itemRefs = [];
+
+  setRef = (ref) => {
+    this.itemRefs.push(ref);
+  };
+
+  focusOnItem = (id) => {
+    this.itemRefs[id].focus();
+  };
+
   renderItems(arr) {
-    const items = arr.map((char) => {
+    const items = arr.map((char, i) => {
       let imgStyle = { objectFit: "cover" };
       if (
         char.thumbnail ===
@@ -76,8 +87,16 @@ class CharList extends Component {
       }
       return (
         <CharListItem
+          ref={this.setRef}
           onClickItem={() => {
             this.props.onCharSelected(char.id);
+            this.focusOnItem(i);
+          }}
+          onKeyPress={(e) => {
+            if (e.key === " " || e.key === "Enter") {
+              this.props.onCharSelected(char.id);
+              this.focusOnItem(i);
+            }
           }}
           key={char.id}
           char={char}

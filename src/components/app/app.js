@@ -25,7 +25,6 @@ const App = () => {
 
   const onCharSelected = useCallback((id) => {
     setSelectedChar(id);
-    console.log(id);
   }, []);
 
   return (
