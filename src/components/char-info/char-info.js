@@ -3,6 +3,7 @@ import { Component } from "react";
 import Spinner from "../spinner/spinner";
 import ErrorMessage from "../error-message/error-message";
 import Skeleton from "../skeleton/skeleton";
+import PropTypes from "prop-types";
 
 class CharInfo extends Component {
   state = {
@@ -122,6 +123,10 @@ const CharView = ({ char }) => {
       </div>
     </>
   );
+};
+
+CharInfo.propTypes = {
+  charId: PropTypes.number.isRequired,
 };
 
 export default CharInfo;
