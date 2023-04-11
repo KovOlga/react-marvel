@@ -1,87 +1,75 @@
 import styles from "./random-char.module.css";
-import { Component } from "react";
+import { useState, useEffect } from "react";
 import Spinner from "../spinner/spinner";
 import ErrorMessage from "../error-message/error-message";
 
-class RandomChar extends Component {
-  constructor(props) {
-    super(props);
-    this.mjolnir = props.mjolnir;
-  }
-  state = {
-    char: {},
-    loading: true,
-    error: false,
+const RandomChar = ({ mjolnir, getCharacter }) => {
+  const [char, setChar] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    updateChar();
+  }, []);
+
+  const onCharLoading = () => {
+    setLoading(true);
+    setError(false);
   };
 
-  componentDidMount() {
-    this.updateChar();
-  }
-
-  onCharLoading = () => {
-    this.setState({
-      loading: true,
-      error: false,
-    });
+  const onCharLoaded = (char) => {
+    setChar(char);
+    setLoading(false);
   };
 
-  onCharLoaded = (char) => {
-    this.setState({ char, loading: false });
+  const onError = () => {
+    setLoading(false);
+    setError(true);
   };
 
-  onError = () => {
-    this.setState({ loading: false, error: true });
-  };
-
-  updateChar = () => {
+  const updateChar = () => {
     const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
-    this.onCharLoading();
-    this.props.getCharacter(id).then(this.onCharLoaded).catch(this.onError);
+    onCharLoading();
+    getCharacter(id).then(onCharLoaded).catch(onError);
   };
 
-  render() {
-    const { char, loading, error } = this.state;
+  const errorMessage = error ? <ErrorMessage /> : null;
+  const spinner = loading ? <Spinner /> : null;
+  const content = !(loading || error) ? <ChangableContent char={char} /> : null;
 
-    const errorMessage = error ? <ErrorMessage /> : null;
-    const spinner = loading ? <Spinner /> : null;
-    const content = !(loading || error) ? (
-      <ChangableContent char={char} />
-    ) : null;
-
-    return (
-      <div className={styles.randomchar}>
-        {errorMessage}
-        {spinner}
-        {content}
-        <div className={styles.randomchar__static}>
-          <div className={styles.randomchar__textContainer}>
-            <div className={styles.randomchar__title}>
-              <p className={styles.randomchar__text}>
-                Random character for today!
-              </p>
-              <p className={styles.randomchar__text}>
-                Do you want to get to know him better?
-              </p>
-            </div>
-            <p className={styles.randomchar__text}>Or choose another one</p>
+  return (
+    <div className={styles.randomchar}>
+      {errorMessage}
+      {spinner}
+      {content}
+      <div className={styles.randomchar__static}>
+        <div className={styles.randomchar__textContainer}>
+          <div className={styles.randomchar__title}>
+            <p className={styles.randomchar__text}>
+              Random character for today!
+            </p>
+            <p className={styles.randomchar__text}>
+              Do you want to get to know him better?
+            </p>
           </div>
-          <button
-            type="button"
-            onClick={this.updateChar}
-            className={`${styles.button} ${styles.button__main}`}
-          >
-            <p className={`${styles.inner} ${styles.inner__main}`}>try it</p>
-          </button>
-          <img
-            src={this.mjolnir}
-            alt="mjolnir"
-            className={styles.randomchar__decoration}
-          />
+          <p className={styles.randomchar__text}>Or choose another one</p>
         </div>
+        <button
+          type="button"
+          onClick={updateChar}
+          className={`${styles.button} ${styles.button__main}`}
+        >
+          <p className={`${styles.inner} ${styles.inner__main}`}>try it</p>
+        </button>
+        <img
+          src={mjolnir}
+          alt="mjolnir"
+          className={styles.randomchar__decoration}
+        />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 const ChangableContent = ({ char }) => {
   const { name, description, thumbnail, homepage, wiki } = char;
