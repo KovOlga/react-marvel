@@ -49,7 +49,6 @@ const App = () => {
             <CharInfo
               charId={selectedChar}
               getCharacter={marvelService.getCharacter}
-              thor={thor}
             />
           </ErrorBoundary>
         </div>

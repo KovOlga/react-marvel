@@ -4,12 +4,12 @@ import CharListItem from "../char-list-item/char-list-item";
 import Spinner from "../spinner/spinner";
 import ErrorMessage from "../error-message/error-message";
 
-const CharList = (props) => {
+const CharList = ({ getAllCharacters, onCharSelected }) => {
   const [charList, setCharList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [newItemLoading, setNewItemLoading] = useState(false);
-  const [offset, setOffset] = useState(210);
+  const [offset, setOffset] = useState(260);
   const [charEnded, setCharEnded] = useState(false);
 
   useEffect(() => {
@@ -22,12 +22,12 @@ const CharList = (props) => {
   };
 
   const loadInitialList = () => {
-    props.getAllCharacters().then(onInitialListLoaded).catch(onError);
+    getAllCharacters().then(onInitialListLoaded).catch(onError);
   };
 
   const onRequest = (offset) => {
     onCharListLoading();
-    props.getAllCharacters(offset).then(onCharListLoaded).catch(onError);
+    getAllCharacters(offset).then(onCharListLoaded).catch(onError);
   };
 
   const onCharListLoading = () => {
@@ -71,12 +71,12 @@ const CharList = (props) => {
         <CharListItem
           ref={(el) => (itemRefs.current[i] = el)}
           onClickItem={() => {
-            props.onCharSelected(char.id);
+            onCharSelected(char.id);
             focusOnItem(i);
           }}
           onKeyPress={(e) => {
             if (e.key === " " || e.key === "Enter") {
-              props.onCharSelected(char.id);
+              onCharSelected(char.id);
               focusOnItem(i);
             }
           }}
