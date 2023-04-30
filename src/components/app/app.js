@@ -13,12 +13,9 @@ import CharInfo from "../char-info/char-info";
 import AppBanner from "../app-banner/app-banner";
 import ComicsList from "../comics-list/comics-list";
 import SingleComic from "../single-comic/single-comic";
-import MarvelService from "../../services/MarvelService";
 import ErrorBoundary from "../error-boundary/error-boundary";
 import { useCallback } from "react";
 import { useState } from "react";
-
-const marvelService = new MarvelService();
 
 const App = () => {
   const [selectedChar, setSelectedChar] = useState(null);
@@ -32,24 +29,15 @@ const App = () => {
       <AppHeader />
       <main className={styles.char}>
         <ErrorBoundary>
-          <RandomChar
-            getCharacter={marvelService.getCharacter}
-            mjolnir={mjolnir}
-          />
+          <RandomChar mjolnir={mjolnir} />
         </ErrorBoundary>
 
         <div className={styles.char__content}>
           <ErrorBoundary>
-            <CharList
-              onCharSelected={onCharSelected}
-              getAllCharacters={marvelService.getAllCharacters}
-            />
+            <CharList onCharSelected={onCharSelected} />
           </ErrorBoundary>
           <ErrorBoundary>
-            <CharInfo
-              charId={selectedChar}
-              getCharacter={marvelService.getCharacter}
-            />
+            <CharInfo charId={selectedChar} />
           </ErrorBoundary>
         </div>
         <img className={styles.char__bg} src={vision} alt="vision" />
