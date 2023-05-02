@@ -1,6 +1,5 @@
 import thor from "../../images/thor.jpeg";
 import mjolnir from "../../images/mjolnir.png";
-import UW from "../../images/UW.png";
 import XM from "../../images/x-men.png";
 import avangers from "../../images/Avengers.png";
 import avangersLogo from "../../images/Avengers_logo.png";
@@ -27,7 +26,7 @@ const App = () => {
   return (
     <div className={styles.app}>
       <AppHeader />
-      <main className={styles.char}>
+      {/* <main className={styles.char}>
         <ErrorBoundary>
           <RandomChar mjolnir={mjolnir} />
         </ErrorBoundary>
@@ -41,12 +40,12 @@ const App = () => {
           </ErrorBoundary>
         </div>
         <img className={styles.char__bg} src={vision} alt="vision" />
-      </main>
-      {/* <main className={styles.comics}>
-        <AppBanner avangers={avangers} avangersLogo={avangersLogo} />
-        <ComicsList UW={UW} XM={XM} />
-        <SingleComic XM={XM} />
       </main> */}
+      <main className={styles.comics}>
+        <AppBanner avangers={avangers} avangersLogo={avangersLogo} />
+        <ComicsList />
+        {/* <SingleComic XM={XM} /> */}
+      </main>
     </div>
   );
 };
