@@ -13,30 +13,3 @@
 button {
   font-family: inherit;
 }
-
-.char {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  position: relative;
-}
-
-.char__bg {
-  position: absolute;
-  right: -174px;
-  bottom: -70px;
-  z-index: -1;
-}
-
-.char__content {
-  display: grid;
-  grid-template-columns: 650px 425px;
-  column-gap: 25px;
-  align-items: start;
-}
-
-.comics {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-}

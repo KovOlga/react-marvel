@@ -8,6 +8,8 @@
   font-size: 28px;
   line-height: 37px;
   margin: 0;
+  text-decoration: none;
+  color: black;
 }
 
 .header__span {
@@ -38,6 +40,8 @@
   line-height: 28px;
 }
 .nav__btn {
+  color: black;
+  text-decoration: none;
   border: none;
   background-color: inherit;
   font-family: inherit;
@@ -46,7 +50,6 @@
   line-height: 32px;
   margin: 0;
   padding: 0;
-  list-style-type: none;
 }
 
 .nav__btn:hover {
