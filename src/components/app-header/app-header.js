@@ -29,7 +29,6 @@ const AppHeader = () => {
           </li>
           <li className={styles.nav__item}>
             <NavLink
-              end
               style={({ isActive }) => ({
                 color: isActive ? "#9f0013" : "black",
               })}
