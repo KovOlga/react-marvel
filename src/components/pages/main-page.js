@@ -7,6 +7,7 @@ import vision from "../../images/vision.png";
 import mjolnir from "../../images/mjolnir.png";
 import { useState, useCallback } from "react";
 import Spinner from "../spinner/spinner";
+import SelectedCharContext from "../context/charContext";
 
 import { lazy } from "react";
 import { Suspense } from "react";
@@ -14,7 +15,7 @@ import { Suspense } from "react";
 const CharInfo = lazy(() => import("../char-info/char-info"));
 
 const MainPage = () => {
-  const [selectedChar, setSelectedChar] = useState(null);
+  const [selectedCharId, setSelectedChar] = useState(null);
 
   const onCharSelected = useCallback((id) => {
     setSelectedChar(id);
@@ -31,7 +32,9 @@ const MainPage = () => {
             <CharList onCharSelected={onCharSelected} />
           </ErrorBoundary>
           <ErrorBoundary>
-            <CharInfo charId={selectedChar} />
+            <SelectedCharContext.Provider value={selectedCharId}>
+              <CharInfo />
+            </SelectedCharContext.Provider>
           </ErrorBoundary>
         </div>
         <img className={styles.char__bg} src={vision} alt="vision" />
