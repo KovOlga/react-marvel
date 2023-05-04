@@ -5,7 +5,6 @@ import Spinner from "../spinner/spinner";
 import ErrorMessage from "../error-message/error-message";
 import useMarvelService from "../../services/MarvelService";
 import { useState, useEffect } from "react";
-import Skeleton from "../skeleton/skeleton";
 
 const SingleComicPage = () => {
   const { loading, error, getComic, clearError } = useMarvelService();

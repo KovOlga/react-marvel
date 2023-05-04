@@ -5,10 +5,14 @@ import ErrorMessage from "../error-message/error-message";
 import Skeleton from "../skeleton/skeleton";
 import PropTypes from "prop-types";
 import useMarvelService from "../../services/MarvelService";
+import { useContext } from "react";
+import SelectedCharContext from "../context/charContext";
 
-const CharInfo = ({ charId }) => {
+const CharInfo = () => {
   const { loading, error, getCharacter, clearError } = useMarvelService();
   const [char, setChar] = useState(null);
+
+  const charId = useContext(SelectedCharContext);
 
   useEffect(() => {
     updateChar();
@@ -100,8 +104,8 @@ const CharView = ({ char }) => {
   );
 };
 
-CharInfo.propTypes = {
-  charId: PropTypes.number,
-};
+// CharInfo.propTypes = {
+//   charId: PropTypes.number,
+// };
 
 export default CharInfo;
