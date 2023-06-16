@@ -1,6 +1,6 @@
 import styles from "./app.module.css";
 import AppHeader from "../app-header/app-header";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import { MainPage, ComicsPage, Page404, SingleComicPage } from "../pages";
 
 const App = () => {
