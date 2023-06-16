@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# Проект: react-marvel
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![react-marvel preview image](./src/images/preview.jpg)
 
-## Available Scripts
+### Обзор
 
-In the project directory, you can run:
+- Интро
+- gh-pages
+- Figma
 
-### `npm start`
+**Интро**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Проект создается на базе React.
+Используется библиотека React Router для клиентского роутинга.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Возможности на данный момент:
 
-### `npm test`
+- Подзагрузка полученного по запросу рандомного персонажа
+- Дозагрузка по запросу дополнительных трех персонажей
+- Карточка каждого загруженного персонажа открывается/обновляется справа
+- Возможен переход на роутинг Comics
+- На роутинге Comics загружаются рандомные комиксы и подзагружаются дполнительные комиксы по запросу
+- Каждый комикс является ссылкой на свою страницу Comics/id
+- С целью избежать лишних ререндеров в проекте используются хуки useMemo, useCallback
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**gh-pages**
 
-### `npm run build`
+Сайт доступен по адресу [react-marvel](https://kovolga.github.io/react-marvel/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Figma**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Проект был выполнен в соответствии с предоставленным платформой Udemy макетом:
+[Ссылка на макет в Figma](https://www.figma.com/file/xiC1B6ZlHvbiUK6FO3caxN/Marvel-DB?type=design&node-id=1883%3A212&t=tysI6uSz9TOHCOL2-1)
