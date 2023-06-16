@@ -1,6 +1,6 @@
 # Проект: react-marvel
 
-![react-marvel preview image](./src/images/preview.jpg)
+<img src="./src/images/preview.jpg" height=550px>
 
 ### Обзор
 
