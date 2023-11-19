@@ -1,33 +1,24 @@
 # Проект: react-marvel
 
-<img src="./src/images/preview.jpg" height=550px>
+Сайт доступен по [адресу](https://kovolga.github.io/react-marvel/)
 
-### Обзор
+Стек: React, библиотека React Router для клиентского роутинга
 
-- Интро
-- gh-pages
-- Figma
+<img src="./src/images/preview.jpg" width=420px>
 
-**Интро**
-
-Проект создается на базе React.
-Используется библиотека React Router для клиентского роутинга.
-
-Возможности на данный момент:
+Возможности:
 
 - Подзагрузка полученного по запросу рандомного персонажа
+
 - Дозагрузка по запросу дополнительных трех персонажей
+
 - Карточка каждого загруженного персонажа открывается/обновляется справа
+
 - Возможен переход на роутинг Comics
+
 - На роутинге Comics загружаются рандомные комиксы и подзагружаются дполнительные комиксы по запросу
+
 - Каждый комикс является ссылкой на свою страницу Comics/id
-- С целью избежать лишних ререндеров в проекте используются хуки useMemo, useCallback
 
-**gh-pages**
-
-Сайт доступен по адресу [react-marvel](https://kovolga.github.io/react-marvel/)
-
-**Figma**
-
-Проект был выполнен в соответствии с предоставленным платформой Udemy макетом:
-[Ссылка на макет в Figma](https://www.figma.com/file/xiC1B6ZlHvbiUK6FO3caxN/Marvel-DB?type=design&node-id=1883%3A212&t=tysI6uSz9TOHCOL2-1)
+Проект был выполнен в соответствии с предоставленным платформой Udemy
+[макетом](https://www.figma.com/file/xiC1B6ZlHvbiUK6FO3caxN/Marvel-DB?type=design&node-id=1883%3A212&t=tysI6uSz9TOHCOL2-1).
