@@ -1,6 +1,6 @@
-# Проект: react-marvel
+# React-marvel
 
-Сайт доступен по [адресу](https://kovolga.github.io/react-marvel/).
+Проект доступен по [адресу](https://kovolga.github.io/react-marvel/).
 
 ## Стек технологий
 
