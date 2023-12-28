@@ -17,7 +17,6 @@ const SingleComicPage = () => {
 
   useEffect(() => {
     updateComic();
-    console.log("ddd", comic);
   }, [comicId]);
 
   const updateComic = () => {
