@@ -111,3 +111,11 @@
 .inner__main::after {
   border-color: #9f0013 transparent;
 }
+
+.char__item_enter {
+  opacity: 0;
+}
+.char__item_enter_active {
+  opacity: 1;
+  transition: opacity 500ms linear;
+}

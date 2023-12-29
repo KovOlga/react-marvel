@@ -1,5 +1,6 @@
 import styles from "./char-list.module.css";
 import { useState, useEffect, useRef } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import CharListItem from "../char-list-item/char-list-item";
 import Spinner from "../spinner/spinner";
 import ErrorMessage from "../error-message/error-message";
@@ -56,26 +57,39 @@ const CharList = ({ onCharSelected }) => {
         imgStyle = { objectFit: "unset" };
       }
       return (
-        <CharListItem
-          ref={(el) => (itemRefs.current[i] = el)}
-          onClickItem={() => {
-            onCharSelected(char.id);
-            focusOnItem(i);
+        <CSSTransition
+          key={char.id}
+          timeout={500}
+          classNames={{
+            enter: styles.char__item_enter,
+            enterActive: styles.char__item_enter_active,
           }}
-          onKeyPress={(e) => {
-            if (e.key === " " || e.key === "Enter") {
+        >
+          <CharListItem
+            ref={(el) => (itemRefs.current[i] = el)}
+            onClickItem={() => {
               onCharSelected(char.id);
               focusOnItem(i);
-            }
-          }}
-          key={char.id}
-          char={char}
-          style={imgStyle}
-        />
+            }}
+            onKeyPress={(e) => {
+              if (e.key === " " || e.key === "Enter") {
+                onCharSelected(char.id);
+                focusOnItem(i);
+              }
+            }}
+            key={char.id}
+            char={char}
+            style={imgStyle}
+          />
+        </CSSTransition>
       );
     });
 
-    return <ul className={styles.charlist__list}>{items}</ul>;
+    return (
+      <ul className={styles.charlist__list}>
+        <TransitionGroup component={null}>{items}</TransitionGroup>
+      </ul>
+    );
   };
 
   const items = renderItems(charList);

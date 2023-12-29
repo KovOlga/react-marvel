@@ -7,7 +7,7 @@ const CharListItem = forwardRef((props, ref) => {
     <li
       tabIndex={0}
       onClick={props.onClickItem}
-      className={styles.charlist__item}
+      className={styles.char__item}
       ref={ref}
     >
       <img
