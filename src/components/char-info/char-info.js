@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import Spinner from "../spinner/spinner";
 import ErrorMessage from "../error-message/error-message";
 import Skeleton from "../skeleton/skeleton";
-import PropTypes from "prop-types";
 import useMarvelService from "../../services/MarvelService";
 import { useContext } from "react";
 import SelectedCharContext from "../context/charContext";
