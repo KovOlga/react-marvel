@@ -6,6 +6,7 @@ import Skeleton from "../skeleton/skeleton";
 import useMarvelService from "../../services/MarvelService";
 import { useContext } from "react";
 import SelectedCharContext from "../context/charContext";
+import CharSearchForm from "../char-search-form/char-search-form";
 
 const CharInfo = () => {
   const { loading, error, getCharacter, clearError } = useMarvelService();
@@ -35,11 +36,14 @@ const CharInfo = () => {
   ) : null;
 
   return (
-    <div className={styles.charInfo}>
-      {skeleton}
-      {errorMessage}
-      {spinner}
-      {content}
+    <div className={styles.oneChar}>
+      <div className={styles.charInfo}>
+        {skeleton}
+        {errorMessage}
+        {spinner}
+        {content}
+      </div>
+      <CharSearchForm />
     </div>
   );
 };
