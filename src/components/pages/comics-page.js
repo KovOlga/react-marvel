@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import AppBanner from "../app-banner/app-banner";
 import ComicsList from "../comics-list/comics-list";
 import avangers from "../../images/Avengers.png";
@@ -6,10 +7,16 @@ import avangersLogo from "../../images/Avengers_logo.png";
 
 const ComicsPage = () => {
   return (
-    <main className={styles.comics}>
-      <AppBanner avangers={avangers} avangersLogo={avangersLogo} />
-      <ComicsList />
-    </main>
+    <>
+      <Helmet>
+        <meta name="description" content="Page with list of our comics" />
+        <title>Comics Page</title>
+      </Helmet>
+      <main className={styles.comics}>
+        <AppBanner avangers={avangers} avangersLogo={avangersLogo} />
+        <ComicsList />
+      </main>
+    </>
   );
 };
 

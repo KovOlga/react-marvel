@@ -11,6 +11,7 @@ import SelectedCharContext from "../context/charContext";
 
 import { lazy } from "react";
 import { Suspense } from "react";
+import { Helmet } from "react-helmet";
 
 const CharInfo = lazy(() => import("../char-info/char-info"));
 
@@ -21,25 +22,32 @@ const MainPage = () => {
     setSelectedChar(id);
   }, []);
   return (
-    <Suspense fallback={<Spinner />}>
-      <main className={styles.char}>
-        <ErrorBoundary>
-          <RandomChar mjolnir={mjolnir} />
-        </ErrorBoundary>
+    <>
+      <Helmet>
+        <meta name="description" content="Marvel information portal" />
+        <title>React Marvel</title>
+      </Helmet>
 
-        <div className={styles.char__content}>
+      <Suspense fallback={<Spinner />}>
+        <main className={styles.char}>
           <ErrorBoundary>
-            <CharList onCharSelected={onCharSelected} />
+            <RandomChar mjolnir={mjolnir} />
           </ErrorBoundary>
-          <ErrorBoundary>
-            <SelectedCharContext.Provider value={selectedCharId}>
-              <CharInfo />
-            </SelectedCharContext.Provider>
-          </ErrorBoundary>
-        </div>
-        <img className={styles.char__bg} src={vision} alt="vision" />
-      </main>
-    </Suspense>
+
+          <div className={styles.char__content}>
+            <ErrorBoundary>
+              <CharList onCharSelected={onCharSelected} />
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <SelectedCharContext.Provider value={selectedCharId}>
+                <CharInfo />
+              </SelectedCharContext.Provider>
+            </ErrorBoundary>
+          </div>
+          <img className={styles.char__bg} src={vision} alt="vision" />
+        </main>
+      </Suspense>
+    </>
   );
 };
 

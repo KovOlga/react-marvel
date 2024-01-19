@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import styles from "./single-comic-page.module.css";
 import { Link, useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -60,6 +61,10 @@ const View = ({ comic, showModal, setShowModal }) => {
     <>
       <AppBanner avangers={avangers} avangersLogo={avangersLogo} />
       <div className={styles.comic}>
+        <Helmet>
+          <meta name="description" content={`${title} comics book`} />
+          <title>{title}</title>
+        </Helmet>
         <div className={styles.comic__cont}>
           <img
             onClick={() => setShowModal(true)}
