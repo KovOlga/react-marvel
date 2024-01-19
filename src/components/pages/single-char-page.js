@@ -6,35 +6,35 @@ import ErrorMessage from "../error-message/error-message";
 import useMarvelService from "../../services/MarvelService";
 import { useState, useEffect } from "react";
 import Modal from "../modal/modal";
+import AppBanner from "../app-banner/app-banner";
 import avangers from "../../images/Avengers.png";
 import avangersLogo from "../../images/Avengers_logo.png";
-import AppBanner from "../app-banner/app-banner";
 
-const SingleComicPage = () => {
+const SingleCharPage = () => {
   let location = useLocation();
-  const { loading, error, getComic, clearError } = useMarvelService();
-  const [comic, setComic] = useState(null);
+  const { loading, error, getCharacter, clearError } = useMarvelService();
+  const [char, setChar] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
-  const { comicId } = useParams();
+  const { charId } = useParams();
 
   useEffect(() => {
-    updateComic();
-  }, [comicId]);
+    updateChar();
+  }, [charId]);
 
-  const updateComic = () => {
+  const updateChar = () => {
     clearError();
-    getComic(comicId).then((comic) => {
-      setComic(comic);
+    getCharacter(charId).then((char) => {
+      setChar(char);
     });
   };
 
   const errorMessage = error ? <ErrorMessage /> : null;
   const spinner = loading ? <Spinner /> : null;
 
-  const content = !(loading || error || !comic) ? (
+  const content = !(loading || error || !char) ? (
     <View
-      comic={comic}
+      char={char}
       location={location}
       showModal={showModal}
       setShowModal={setShowModal}
@@ -50,8 +50,8 @@ const SingleComicPage = () => {
   );
 };
 
-const View = ({ comic, showModal, setShowModal }) => {
-  const { title, thumbnail, description, price, pageCount, language } = comic;
+const View = ({ char, showModal, setShowModal }) => {
+  const { name, description, thumbnail } = char;
 
   const onCloseModal = () => {
     setShowModal(false);
@@ -64,29 +64,26 @@ const View = ({ comic, showModal, setShowModal }) => {
           <img
             onClick={() => setShowModal(true)}
             src={thumbnail}
-            alt={title}
+            alt={name}
             className={styles.comic__img}
           />
           <div className={styles.comic__info}>
-            <h2 className={styles.comic__name}>{title}</h2>
+            <h2 className={styles.comic__name}>{name}</h2>
             <p className={styles.comic__descr}>{description}</p>
-            <p className={styles.comic__descr}>{pageCount}</p>
-            <p className={styles.comic__descr}>Language: {language}</p>
-            <p className={styles.comic__price}>{price}</p>
           </div>
         </div>
-        <Link to="/comics">
+        <Link to="/">
           <button className={styles.comic__back}>Back to all</button>
         </Link>
       </div>
 
       {showModal && (
         <Modal onClose={onCloseModal}>
-          <img src={thumbnail} alt={title} />
+          <img src={thumbnail} alt={name} />
         </Modal>
       )}
     </>
   );
 };
 
-export default SingleComicPage;
+export default SingleCharPage;

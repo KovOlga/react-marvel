@@ -5,6 +5,7 @@ import {
   Page404,
   SingleComicPage,
   LayoutPage,
+  SingleCharPage,
 } from "./components/pages";
 
 const App = () => {
@@ -14,8 +15,8 @@ const App = () => {
         <Route index path="/" element={<MainPage />} />
         <Route path="/comics" element={<ComicsPage />} />
         <Route path="/comics/:comicId" element={<SingleComicPage />} />
+        <Route path="/characters/:charId" element={<SingleCharPage />} />
         <Route path="*" element={<Page404 />} />
-        <Route path="/characters/:charId" />
       </Route>
     </Routes>
   );
